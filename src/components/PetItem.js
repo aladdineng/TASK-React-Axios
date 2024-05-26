@@ -1,8 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PetItem = ({ pet }) => {
+  const navigate = useNavigate();
+
+  const handelNav = () => {
+    navigate(`/petdet/${pet.id}`);
+  };
   return (
-    <div className="w-[300px] h-[400px]  border border-black rounded-md flex flex-col justify-between items-center p-4">
+    <div
+      className="w-[300px] h-[400px]  border border-black rounded-md flex flex-col justify-between items-center p-4"
+      onClick={handelNav}
+    >
       <h1 className="text-md font-bold">{pet.name}</h1>
       <img
         src={pet.image}
